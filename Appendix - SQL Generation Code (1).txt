@@ -1,0 +1,143 @@
+CREATE TABLE BAH.dbo.person (
+person_surveyid     int NOT NULL IDENTITY PRIMARY KEY,
+person_paxid 		int NULL,
+person_group 		varchar(50) NULL,
+person_gender		varchar(50) NULL,
+person_prepost 		varchar(50) NULL, 
+person_date 		date NULL,
+person_unityears 	smallint NULL,
+person_age 			smallint NULL,
+person_billet 		varchar(15) NULL,
+person_status 		varchar(15) NULL,
+person_deployments 	smallint NULL,
+person_monthsdep 	smallint NULL,
+person_monthsincedep smallint NULL,
+person_marital 		varchar(20) NULL,
+person_tobacco 		varchar(3) NULL,
+person_commutetime 	smallint NULL,
+person_transportmode varchar(20) NULL, 
+person_daysfromhome varchar(10) NULL,
+person_trainingdays varchar(50) NULL,
+person_hpr 			varchar(50) NULL,
+person_progtraining varchar(50) NULL,
+person_trainingprog varchar(500) NULL,
+person_trainingprog_4_TEXT varchar(500) NULL,
+person_fruits 		varchar(50) NULL,
+person_veg 			varchar(50) NULL,
+person_protein 		varchar(50) NULL,
+person_fat 			varchar(50) NULL,
+person_water 		smallint NULL,
+person_caffeine		smallint NULL,
+person_sugar 		varchar(50) NULL,
+person_alcohol 		varchar(50) NULL,
+person_pain72 		varchar(50) NULL,
+person_paincare		varchar(50) NULL,
+person_paincarereas varchar(500) NULL,
+person_paincarereas_5_TEXT varchar(500) NULL,
+person_functionlevel smallint NULL,
+person_painlevel 	smallint NULL,
+person_painseekcare varchar(500) NULL,
+person_painseekcare_1_TEXT varchar(500) NULL,
+person_painseekcare_2_TEXT varchar(500) NULL,
+person_sleep 		smallint NULL,
+person_sleepquality varchar(20) NULL,
+person_stress 		varchar(20) NULL
+);
+
+CREATE TABLE BAH.dbo.blood_work(
+blood_workid 		int NOT NULL IDENTITY PRIMARY KEY,
+blood_d 				numeric(5,2) NULL,
+blood_mag 			numeric(5,2) NULL,
+blood_b12 			numeric(5,2) NULL,
+blood_hdl 			numeric(5,2) NULL,
+blood_ldl 			numeric(5,2) NULL,
+blood_tg 			numeric(5,2) NULL,
+person_paxid 		int NULL
+);
+
+CREATE TABLE BAH.dbo.physical(
+physical_id 			int NOT NULL IDENTITY PRIMARY KEY,
+phys_date 			date NOT NULL,
+phys_tbdl 			smallint NULL,
+phys_spt 			smallint NULL,
+phys_tpu 			smallint NULL,
+phys_sdc 			varchar(50) NULL,
+phys_lt 				smallint NULL,
+phys_2mi 			varchar(50) NULL,
+phys_gripr180 		smallint NULL,
+phys_gripl180 		smallint NULL,
+phys_gripr90 		smallint NULL,
+phys_gripl90 		smallint NULL,
+phys_prepost 		varchar(50),
+person_paxid 		int NULL
+);
+
+CREATE TABLE BAH.dbo.hrv(
+hrv_id 				int NOT NULL IDENTITY PRIMARY KEY,
+hrv_week 			smallint NULL,
+hrv_hrv 				smallint NULL,
+hrv_sdd_1_4			smallint NULL,
+hrv_sdd_2_4			smallint NULL,
+hrv_sdd_3_4			smallint NULL,
+hrv_sdd_4_4			smallint NULL,
+hrv_sdd_5_4			smallint NULL,
+hrv_sdd_6_4			smallint NULL,
+hrv_sdd_7_4			smallint NULL,
+hrv_slp			 	smallint NULL,
+person_paxid 		int NULL
+);
+
+CREATE TABLE BAH.dbo.inbody(
+inbody_id 			int NOT NULL IDENTITY PRIMARY KEY,
+inbody_date 			date,
+inbody_wt 			numeric(5,2) NULL,
+inbody_bodyfat 		numeric(5,2) NULL,
+inbody_viscfat 		numeric(5,2) NULL,
+inbody_prepost 		varchar(50),
+person_paxid 		int NULL
+);
+
+CREATE TABLE BAH.dbo.cognitive(
+cognitive_id 		int NOT NULL IDENTITY PRIMARY KEY,
+cog_date 			date NULL, 
+cog_prepost 			varchar(50),
+cog_hrvb 			smallint NULL,
+cog_ap 				smallint NULL,
+cog_ir 				smallint NULL,
+cog_vpsb 			smallint NULL,
+cog_vpsm 			smallint NULL,
+cog_ltvr 			smallint NULL,
+cog_wmv 			smallint NULL,
+cog_wma 			smallint NULL,
+cog_accb_1_1        numeric(5,2) NULL, 
+cog_accb_2_1 		numeric(5,2) NULL,
+cog_accb_3_1 		numeric(5,2) NULL,
+cog_rtb_1_1 		numeric(5,2) NULL,
+cog_rtb_2_1 		numeric(5,2) NULL,
+cog_rtb_3_1 		numeric(5,2) NULL,
+cog_accmax_1_1 		numeric(5,2) NULL,
+cog_accmax_2_1 		numeric(5,2) NULL,
+cog_accmax_3_1 		numeric(5,2) NULL,
+cog_rtmax_1_4 		numeric(5,2) NULL,
+cog_rtmax_2_4 		numeric(5,2) NULL,
+cog_rtmax_3_4 		numeric(5,2) NULL,
+cog_accgng_1_1 		numeric(5,2) NULL,
+cog_accgng_2_1 		numeric(5,2) NULL,
+cog_rtgng_1_1 		numeric(5,2) NULL,
+cog_rtgng_2_1 		numeric(5,2) NULL,
+person_paxid 		int NULL
+);
+
+
+CREATE TABLE BAH.dbo.utilization (
+utilization_id 		int NOT NULL IDENTITY PRIMARY KEY,
+util_sessionsmp 		smallint NULL,
+util_durmp			smallint NULL,
+util_sessionsnutr 	smallint NULL,
+util_durnutr			smallint NULL,
+util_sessionshp 		smallint NULL,
+util_durhp			smallint NULL,
+util_sessionspt		smallint NULL,
+util_durpt			smallint NULL,
+person_paxid 		int NULL
+);
